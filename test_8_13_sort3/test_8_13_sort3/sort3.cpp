@@ -27,7 +27,7 @@ const void BubbleSort(int* arr, const int size)
 	}
 }
 
-int GetMidIndex(int* arr, int left,/* int mid,*/ int right)//三数取中法不用传mid！！！！！！！！！！
+int GetMidIndex(int* arr, int left, int right)//三数取中法不用传mid！！！！！！！！！！
 {
 	assert(arr);
 	int mid = (right - left) >> 1;//只有这里right不用-1
@@ -75,29 +75,49 @@ int partion(int* arr, int left,  int right)
 	return begin;
 }
 
-void QuickSort(int* arr, int size)
-{
+void InsertSort(int* array,int left, int right);
 
-	int div = partion(arr, 0, size);
-	partion(arr, 0, div);
-	partion(arr, div + 1, size);
+
+void QuickSort(int* arr, int left, int right)
+{
+	if (right - left < 16)
+		//InsertSort(arr, right - left);
+		InsertSort(arr, left, right);
+	else
+	{
+		int div = partion(arr, left, right);
+		QuickSort(arr, left, div);
+		QuickSort(arr, div + 1, right);
+	}
 }
 
 
+void InsertSort(int* array, int left, int right)
+{
+	for (int i =left + 1; i < right; ++i)
+	{
+		// 待插入元素
+		int key = array[i];
 
+		// 找key的插入位置：与前面已经排序好的元素从后往前比较
+		int end = i - 1;
+		while (end >= 0 && key < array[end])
+		{
+			array[end + 1] = array[end];
+			end -= 1;
+		}
 
-
-
-
-
-
-
+		// 插入元素
+		array[end + 1] = key;
+	}
+}
 
 int main()
 {
-	int arr[] = { 5, 7, 6, 2, 9, 8, 4, 1, 3, 0 };
+	int arr[] = { 5, 7, 6, 2, 9, 8, 4, 1, 3, 0, 77, 22, 95, 68, 41, 20, 31, 54, 68, 44, 22, 33 };
 	//BubbleSort(arr, 10);
-	QuickSort(arr, 10);
+	int len = sizeof(arr) / sizeof(arr[0]);
+	QuickSort(arr,0, len);
 	for (auto e : arr)
 		cout << e << " ";
 	cout << endl;
