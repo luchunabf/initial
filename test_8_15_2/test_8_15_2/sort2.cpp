@@ -21,11 +21,30 @@ void ShellSort(int* arr, int size)
 		
 	}
 }
+void ShellSort1(int* arr, int left, int right)
+{
+	int gap = (right - left) / 3 + 1;
+	for (; gap >= 1; --gap)
+	{
+		for (int i = left + gap; i < right; ++i)
+		{
+			int key = arr[i];
+			int end = i - gap;
+			while (end >= 0 && arr[end] > key)
+			{
+				arr[end + gap] = arr[end];
+				end -= gap;
+			}
+			arr[end + gap] = key;
+		}
+	}
+}
 int main()
 {
 	int arr[] = { 5, 1, 2, 3, 4, 5, 7, 4, 6, 8, 9, 0 };
 	int len = sizeof(arr) / sizeof(arr[0]);
-	ShellSort(arr, len);
+	//ShellSort(arr, len);
+	ShellSort1(arr, 0, len);
 	for (auto e : arr)
 		cout << e << " ";
 	cout << endl;
