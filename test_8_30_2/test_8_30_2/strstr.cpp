@@ -1,4 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
+#include <iostream>
+#include <string>
+using namespace std;
 //I
 class Solution {
 public:
@@ -9,11 +12,7 @@ public:
 		int index = index1;
 		while (index1 != haystack.size() && index2 != needle.size())
 		{
-			while (haystack[index1] != needle[index2])
-			{
-				index1++;
-				index++;
-			}
+
 			while (index1 < haystack.size() && index2 < needle.size() && haystack[index1] == needle[index2])
 			{
 				index1++;
@@ -21,16 +20,27 @@ public:
 			}
 			if (index2 == needle.size()) return index;
 			if (index1 == haystack.size() && index2 != needle.size()) return -1;
-			else
-			{
-				index++;
-				index1 = index;
-				index2 = 0;
-			}
-		}
 
+			index++;
+			index1 = index;
+			index2 = 0;
+
+		}
+		return -1;
 	}
 };
+
+int main()
+{
+	Solution s;
+	string s1 = "abcdabbacd";
+	string s2 = "abba";
+	cout << s.strStr(s1, s2);
+	return 0;
+}
+
+
+#if 0
 //answer
 class Solution {
 public:
@@ -40,3 +50,4 @@ public:
 		return pos;
 	}
 };
+#endif
