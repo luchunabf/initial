@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <iostream>
 #include <assert.h>
+#include <string.h>
 //using namespace std;
 
 class String
@@ -44,7 +45,11 @@ private:
 };
 int main()
 {
-	String s("hello world");
+	String s1("hello world");
 	//cout << s << endl;
+	String s2(s1);
+	String s3;
+	s3 = s1;
 	
+	return 0;
 }
