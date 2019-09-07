@@ -9,6 +9,8 @@
 //		printf("·ï±¦±¦×î°ôÃ´Ã´ßÕ\n");
 //		a++;
 //	}
+
+#if 0
 int main()
  {
 	int i = 0;
@@ -34,3 +36,4 @@ int main()
 	system("pause");
 	return 0;
 }
+#endif
