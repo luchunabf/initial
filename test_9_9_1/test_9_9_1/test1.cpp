@@ -29,7 +29,7 @@ int GetMidIndex(int* arr, int left, int right)
 
 int partion(int* arr, int left, int right)
 {
-	int begin = 0; 
+	int begin = left; 
 	int end = right - 1;
 	int mid = GetMidIndex(arr, left, right);
 	swap(arr[mid], arr[end]);
