@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <iostream>
 #include <string.h>
+#include <assert.h>
 using namespace std;
 
 class String
@@ -10,6 +11,7 @@ public:
 	{
 		if (nullptr == str)
 		{
+			assert(false);
 			return;
 		}
 		_str = new char[strlen(str) + 1];
