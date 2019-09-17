@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <map>
-#include <string.h>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -17,5 +16,18 @@ int main()
 		cout << it->first << "-->" << it->second << endl;
 		++it;
 	}
+
+	cout << m.size() << endl;
+
+	m.erase("apple");
+
+	for (auto& e : m)
+	{
+		cout << e.first << "-->" << e.second << endl;
+	}
+
+	cout << m.size() << endl;
+	cout << m.count("bnana") << endl;
+
 	return 0;
 }
