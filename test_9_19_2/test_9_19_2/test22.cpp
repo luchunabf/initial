@@ -3,6 +3,7 @@
 #include <assert.h>
 using namespace std;
 
+#if 0
 void InsertSort(int* arr, int size)
 {
 	for (int i = 1; i < size; ++i)
@@ -17,7 +18,22 @@ void InsertSort(int* arr, int size)
 		arr[end + 1] = key;
 	}
 }
+#endif
 
+void InsertSort(int* arr, int size)
+{
+	for (int i = 1; i < size; ++i)
+	{
+		int key = arr[i];
+		int end = i - 1;
+		while (end >= 0 && arr[end] > key)
+		{
+			arr[end + 1] = arr[end];
+			end--;
+		}
+		arr[end + 1] = key;
+	}
+}
 
 int main()
 {
