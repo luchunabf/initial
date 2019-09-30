@@ -10,7 +10,7 @@ public:
 	virtual void F3() = 0;
 };
 
-class Student
+class Student : public Person
 {
 public:
 	void F1()
